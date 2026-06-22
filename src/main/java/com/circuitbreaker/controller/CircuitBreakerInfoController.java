@@ -34,11 +34,10 @@ public class CircuitBreakerInfoController {
         result.put("state", circuitBreaker.getState().name());
         result.put("failureRate", metrics.getFailureRate());
         result.put("successRate", 100.0 - metrics.getFailureRate());
-        result.put("numberOfCalls", metrics.getNumberOfCalls());
+        result.put("numberOfBufferedCalls", metrics.getNumberOfBufferedCalls());
         result.put("numberOfSuccessfulCalls", metrics.getNumberOfSuccessfulCalls());
         result.put("numberOfFailedCalls", metrics.getNumberOfFailedCalls());
         result.put("numberOfNotPermittedCalls", metrics.getNumberOfNotPermittedCalls());
-        result.put("slidingWindowSize", metrics.getMaxNumberOfCalls());
 
         return result;
     }

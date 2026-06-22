@@ -1,0 +1,10 @@
+target/
+.git/
+.idea/
+.vscode/
+*.iml
+*.log
+.DS_Store
+Thumbs.db
+*.md
+test-circuit-breaker.sh
