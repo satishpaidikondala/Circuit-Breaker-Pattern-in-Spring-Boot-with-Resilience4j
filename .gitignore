@@ -22,3 +22,7 @@ Thumbs.db
 # Environment
 .env
 *.env.local
+
+# API Collections (do not commit)
+*.postman_collection.json
+*.bru.json
