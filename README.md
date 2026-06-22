@@ -27,6 +27,16 @@ mvn spring-boot:run
 java -jar target/circuit-breaker-demo-1.0.0.jar
 ```
 
+### Using Docker
+```bash
+# Build and run with Docker Compose
+docker compose up --build
+
+# Or build and run manually
+docker build -t circuit-breaker-demo .
+docker run -p 8080:8080 circuit-breaker-demo
+```
+
 The application will start on port `8080`.
 
 ## API Endpoints
@@ -84,6 +94,18 @@ The test script will:
 6. **Verify recovery** — Makes successful calls to transition the circuit to `HALF_OPEN` and then back to `CLOSED`
 7. **Check metrics** — Displays the final circuit breaker metrics
 
+### Using Postman
+
+Import `api-collection.json` into Postman. It contains all API endpoints organized into three folders:
+
+- **State & Health** — circuit breaker state, metrics, actuator endpoints
+- **User Data** — fetch users by ID with success/fallback examples
+- **Test Flow: Trip Circuit Breaker** — 10-step automated test sequence with assertions
+
+### Video Demo
+
+Refer to `DEMO_SCRIPT.md` for a full video walkthrough script covering build, test, and circuit breaker state transitions.
+
 ### Manual testing
 
 ```bash
@@ -105,7 +127,11 @@ curl http://localhost:8080/actuator/circuitbreakers
 ```
 ├── pom.xml
 ├── README.md
+├── Dockerfile
+├── docker-compose.yml
 ├── test-circuit-breaker.sh
+├── api-collection.json          (gitignored, for Postman)
+├── DEMO_SCRIPT.md               (gitignored, video walkthrough)
 ├── src/
 │   └── main/
 │       ├── java/com/circuitbreaker/
